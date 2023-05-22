@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div className="navbar-wrapper">
       <div className="navbar">
-        <a href="/" className="logo">WRITING KIDA</a>
+        <a href="/" className="logo">THINK & INK</a>
         <div className="navigation-wrapper">
           <div className="navigation">
             <Link to="/blogs">BLOG</Link>

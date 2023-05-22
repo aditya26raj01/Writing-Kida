@@ -39,7 +39,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="copyright">
-        Copyright ©2023 WRITING KIDA
+        Copyright ©2023 THINK & INK
       </div>
     </div>
   )
