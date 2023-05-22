@@ -1,0 +1,10 @@
+.base{
+    max-width: 1800px;
+    width: 75%;
+    margin: 40px auto;
+}
+@media screen and (max-width:950px) {
+    .base{
+        width: 90%;
+    }
+}
