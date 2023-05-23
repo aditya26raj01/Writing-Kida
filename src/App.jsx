@@ -9,8 +9,15 @@ import Login from "./Pages/Login/Login";
 import { Slide, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Signup from "./Pages/Signup/Signup";
+import DashBoard from "./Pages/DashBoard/DashBoard";
+import ManageUser from "./Components/ManageUser/ManageUser";
+import AddPost from "./Components/AddPost/AddPost";
+import ManagePost from "./Components/ManagePost/ManagePost";
+import { useSelector } from "react-redux";
+import Blog from "./Pages/Blog/Blog";
 
 const App = () => {
+  const { user } = useSelector((state) => state.store);
   return (
     <Router>
       <Routes>
@@ -20,9 +27,15 @@ const App = () => {
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog/:id" element={user?<Blog/>:<Navigate to="/login" replace={true} />} />
+          <Route element={user?<DashBoard />:<Navigate to="/login" replace={true} />}>
+            <Route path="/dashboard/manage-user" element={<ManageUser/>}/>
+            <Route path="/dashboard/add-post" element={<AddPost/>}/>
+            <Route path="/dashboard/manage-post" element={<ManagePost/>}/>
+          </Route>
         </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        {!user && <Route path="/login" element={<Login />} />}
+        {!user && <Route path="/signup" element={<Signup />} />}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <ToastContainer

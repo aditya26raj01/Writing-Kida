@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
 import "./Post.css";
+import moment from "moment";
 
-const Post = () => {
+const Post = (props) => {
+  const { blog } = props;
   return (
     <div className="post">
-      <img src="/Images/ADANI.jpeg" alt="" className="thumbnail" />
-      <Link to="/" className="tag">Politics</Link>
-      <Link to="/" className="title">Adani Group stocks hit lower circuits</Link>
+      <img src={blog.coverImage} alt="" className="thumbnail" />
+      <Link to="/" className="tag">{blog.tag}</Link>
+      <Link to={`/blog/${blog._id}`} className="title">{blog.title}</Link>
       <p className="description">
-        Adani Group stocks tanked on Friday to hit lower circuits once again. The group companies’ shares came under pressure since Hindenburg Research alleged the conglomerate of fraud and stock manipulation.
+        {blog.description}
       </p>
       <div className="author">
-        <img src="/Images/Gaiety.jpeg" alt="" className="avatar" />
+        <img src={blog.author.profileImage} alt="" className="avatar" />
         <div className="name-wrapper">
-          <div>By: <span className="name">Gaiety Bhabhya</span></div>
-          <div>Jan 25, 2023</div>
+          <div>By: <span className="name">{blog.author.firstName} {blog.author.lastName}</span></div>
+          <div>{moment(blog.postedAt).format("ll")}</div>
         </div>
       </div>
     </div>

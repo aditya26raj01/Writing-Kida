@@ -1,60 +1,29 @@
-import axios from "axios";
 import { useState } from "react";
-import { toast } from "react-toastify";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from "../../firebase";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signup } from "../../store/services/signup";
+import { uploadToFirebase } from "../../store/services/uploadToFirebase";
 
 const Signup = () => {
+    const dispatch = useDispatch();
     const [query, setQuery] = useState(null);
     const [uploadStatus, setUploadStatus] = useState(null);
+
     const handleInput = (e) => {
         setQuery({ ...query, [e.target.name]: e.target.value });
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await axios.post(
-                process.env.REACT_APP_API_URL + "/user/signup",
-                query
-            );
-            console.log(response.data);
-            if (response.data.status) toast.success(response.data.message);
-            else toast.error(response.data.message);
-        } catch (error) {
-            console.log(error);
-            if (error.response.data.message.constructor === Array) {
-                error.response.data.message.forEach((error) => {
-                    toast.error(error);
-                })
-            } else {
-                toast.error(error.response.data.message);
-            }
-        }
+        dispatch(signup(query)).then(() => {
+            document.getElementById("signup").reset();
+        })
     }
     const handleUpload = (e) => {
-        const imageRef = ref(storage, `profile/${e.target.files[0].name}`);
-        const uploadTask = uploadBytesResumable(imageRef, e.target.files[0]);
-
-        uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-                const percent = Math.round(
-                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                );
-                setUploadStatus(percent);
-            },
-            (err) => console.log(err),
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                    setQuery({ ...query, profileImage: url });
-                });
-            }
-        );
+        uploadToFirebase("profileImage", e, "profile", setUploadStatus, query, setQuery);
     }
     return (
         <div className="login-wrapper">
-            <form onSubmit={handleSubmit} className="login">
+            <form onSubmit={handleSubmit} id="signup" className="login">
                 <h2>Create an Account</h2>
                 <input type="text" placeholder="First Name" name="firstName" onChange={handleInput} />
                 <input type="text" placeholder="Last Name" name="lastName" onChange={handleInput} />

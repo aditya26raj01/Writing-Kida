@@ -1,21 +1,23 @@
 import { Link } from "react-router-dom";
 import "./Headline.css";
+import moment from "moment";
 
-const Headline = () => {
+const Headline = (props) => {
+  const { blog } = props;
   return (
     <div className="headline">
-        <img src="/Images/Pm.jpeg" alt="" className="thumbnail" />
+        <img src={blog.coverImage} alt="" className="thumbnail" />
         <div className="content-wrapper">
-            <Link to="/" className="tag">Politics</Link>
-            <Link to="/" className="title">PM Of India</Link>
+            <Link to="/" className="tag">{blog.tag}</Link>
+            <Link to={`/blog/${blog._id}`} className="title">{blog.title}</Link>
             <p className="description">
-            The prime minister of India (IAST: Bhārat Ke Pradhānamantrī) is the head of government of the Republic of India. [2][3] Executive authority is vested in the prime minister and their chosen Council of Ministers,[4][5][6] despite the president of India being the nominal head of the
+            {blog.description}
             </p>
             <div className="author">
-                <img src="/Images/Gaiety.jpeg" alt="" className="avatar" />
+                <img src={blog.author.profileImage} alt="" className="avatar" />
                 <div className="name-wrapper">
-                    <div>By: <span className="name">Gaiety Bhabhya</span></div>
-                    <div>Jan 25, 2023</div>
+                    <div>By: <span className="name">{blog.author.firstName} {blog.author.lastName}</span></div>
+                    <div>{moment(blog.postedAt).format("ll")}</div>
                 </div>
             </div>
         </div>

@@ -35,6 +35,7 @@
     color: var(--color-bg);
 }
 .complete{
+    width: 100%;
     background-color:#66c9bfe4 !important;
     color: white !important;
 }

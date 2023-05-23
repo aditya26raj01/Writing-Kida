@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import Popover from '@mui/material/Popover';
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { user } = props;
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -12,6 +13,11 @@ const Navbar = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    window.location.replace("/");
   };
 
   const open = Boolean(anchorEl);
@@ -25,10 +31,11 @@ const Navbar = () => {
             <Link to="/blogs">BLOG</Link>
             <Link to="/news">NEWS</Link>
             <Link to="/contact">CONTACT</Link>
-            <Link to="/login">SIGNIN</Link>
+            {!user && <Link to="/login">SIGNIN</Link>}
             <Link to="/about">ABOUT</Link>
           </div>
-          <img className="avatar" aria-describedby={id} onClick={handleClick} src="/Images/Gaiety.jpeg" alt="" />
+          {user && <img className="avatar" aria-describedby={id} onClick={handleClick} src={user.profileImage} alt="" />}
+          {!user && <i className="uil uil-list-ui-alt ham" aria-describedby={id} onClick={handleClick}></i>}
         </div>
       </div>
       <Popover
@@ -43,14 +50,14 @@ const Navbar = () => {
       >
         <div className="popover">
           <div className="desktop">
-            <Link to="/blogs">BLOG</Link>
-            <Link to="/news">NEWS</Link>
-            <Link to="/contact">CONTACT</Link>
-            <Link to="/login">SIGNIN</Link>
-            <Link to="/about">ABOUT</Link>
+            <Link to="/blogs" onClick={handleClose}>BLOG</Link>
+            <Link to="/news" onClick={handleClose}>NEWS</Link>
+            <Link to="/contact" onClick={handleClose}>CONTACT</Link>
+            {!user && <Link to="/login" onClick={handleClose}>SIGNIN</Link>}
+            <Link to="/about" onClick={handleClose}>ABOUT</Link>
           </div>
-          <Link to="/dashboard">DASHBOARD</Link>
-          <Link to="/">LOGOUT</Link>
+          {user && <Link to="/dashboard/manage-post" onClick={handleClose}>DASHBOARD</Link>}
+          {user && <Link to="/" onClick={handleLogout}>LOGOUT</Link>}
         </div>
       </Popover>
     </div>

@@ -1,34 +1,20 @@
 import "./Login.css";
-import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { login } from "../../store/services/login";
 
 const Login = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [query, setQuery] = useState(null);
     const handleInput = (e) => {
         setQuery({ ...query, [e.target.name]: e.target.value });
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await axios.post(
-                process.env.REACT_APP_API_URL + "/user/login",
-                query
-            );
-            console.log(response.data);
-            if (response.data.status) toast.success(response.data.message);
-            else toast.error(response.data.message);
-        } catch (error) {
-            console.log(error);
-            if (error.response.data.message.constructor === Array) {
-                error.response.data.message.forEach((error) => {
-                    toast.error(error);
-                })
-            } else {
-                toast.error(error.response.data.message);
-            }
-        }
+        dispatch(login(query)).unwrap().then(() => navigate("/", {replace: true}))
+        .catch(()=>{})
     }
     return (
         <div className="login-wrapper">

@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 import "./Category.css";
 
-const Category = () => {
+const Category = (props) => {
+    const { categories } = props;
     return (
-        <div className="cateogry-wrapper">
-            <div className="category">
-                <Link to="/" className="cateogry__button">Politics</Link>
-                <Link to="/" className="cateogry__button">Stock Market</Link>
-                <Link to="/" className="cateogry__button">Technology</Link>
-                <Link to="/" className="cateogry__button">Sports</Link>
-                <Link to="/" className="cateogry__button">Entertainment</Link>
-                <Link to="/" className="cateogry__button">Nature</Link>
-            </div>
-        </div>
+        <>
+            {categories && categories.length !== 0 ? <div className="cateogry-wrapper">
+                <div className="category">
+                    {categories && categories.map((category, index) => {
+                        return <Link to="/" key={index}>{category.name}</Link>
+                    })}
+                </div>
+            </div> : ""}
+        </>
     )
 }
 

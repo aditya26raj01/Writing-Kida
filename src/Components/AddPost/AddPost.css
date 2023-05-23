@@ -1,0 +1,83 @@
+.add-post h2{
+    margin-bottom: 1rem;
+}
+.add-post form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.add-post form textarea{
+    border: none;
+    outline: none;
+    padding: 0.8rem 1.4rem;
+    background-color: var(--color-primary-variant);
+    border-radius: var(--card-border-radius-2);
+    resize: none;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-white);
+}
+.add-post form input{
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0.8rem 1.4rem;
+    background-color: var(--color-primary-variant);
+    border-radius: var(--card-border-radius-2);
+    resize: none;
+    color: var(--color-white);
+}
+.add-post form ::placeholder{
+    color: rgba(255, 255, 255, 0.486);
+    font-weight: 500;
+}
+.add-post form button{
+    padding: 0.6rem 1.2rem;
+    background-color: var(--color-primary);
+    border-radius: var(--card-border-radius-2);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-white);
+    border: none;
+    outline: none;
+    margin-top: 1rem;
+}
+.add-post form button:hover {
+    background: var(--color-white);
+    color: var(--color-bg);
+}
+.add-post form input[type="file"]{
+    width: 100%;
+}
+.add-post form .wrapper{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.add-post form span{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.add-post form select{
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 0.8rem 1.4rem;
+    background-color: var(--color-primary-variant);
+    border-radius: var(--card-border-radius-2);
+    color: var(--color-white);
+}
+.add-post .checkbox{
+    display: flex;
+    gap: 1rem;
+}
+@media screen and (max-width:760px) {
+    .add-post form{
+        gap: 0.5rem;
+    }
+    .add-post form .wrapper{
+        flex-direction: column;
+        align-items: start;
+    }
+}

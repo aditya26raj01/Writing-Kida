@@ -2,6 +2,7 @@
     max-width: 1800px;
     width: 75%;
     margin: 40px auto;
+    min-height: 50vh;
 }
 @media screen and (max-width:950px) {
     .base{

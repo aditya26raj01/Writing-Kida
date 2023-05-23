@@ -1,7 +1,9 @@
+import { useOutletContext } from "react-router-dom";
 import Posts from "../Posts/Posts";
 import "./Blogs.css";
 
 const Blogs = () => {
+  const {blogs} = useOutletContext();
   return (
     <div className="blogs">
         <form className="search-box">
@@ -11,7 +13,7 @@ const Blogs = () => {
             </div>
             <button type="submit">Search</button>
         </form>
-        <Posts/>
+        {blogs && <Posts blogs={blogs}/>}
     </div>
   )
 }
