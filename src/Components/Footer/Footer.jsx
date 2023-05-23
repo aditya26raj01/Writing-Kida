@@ -23,23 +23,23 @@ const Footer = () => {
         </div>
         <div className="row">
           <h4>Support</h4>
-          <Link to="/">Online Support</Link>
-          <Link to="/">Phn Numbers</Link>
-          <Link to="/">Emails</Link>
-          <Link to="/">Sports</Link>
-          <Link to="/">Sports</Link>
+          <Link to="/contact">Online Support</Link>
+          <Link to="/contact">Phn Numbers</Link>
+          <Link to="/contact">Emails</Link>
+          <Link to="/contact">Sports</Link>
+          <Link to="/about">About</Link>
         </div>
         <div className="row">
           <h4>Permalinks</h4>
           <Link to="/">Home</Link>
-          <Link to="/">Blogs</Link>
-          <Link to="/">News</Link>
-          <Link to="/">Contact</Link>
-          <Link to="/">Sign In</Link>
+          <Link to="/blogs">Blogs</Link>
+          <Link to="/news">News</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/login">Sign In</Link>
         </div>
       </div>
       <div className="copyright">
-        Copyright ©2023 THINK & INK
+        Copyright © 2023 think & ink
       </div>
     </div>
   )

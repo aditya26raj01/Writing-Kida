@@ -25,7 +25,9 @@ const Navbar = (props) => {
   return (
     <div className="navbar-wrapper">
       <div className="navbar">
-        <a href="/" className="logo">THINK & INK</a>
+        <a href="/" className="logo">
+          <img src="/Images/favi.png" alt="" />
+          think & ink</a>
         <div className="navigation-wrapper">
           <div className="navigation">
             <Link to="/blogs">BLOG</Link>
