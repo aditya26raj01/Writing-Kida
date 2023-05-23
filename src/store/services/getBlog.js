@@ -1,5 +1,5 @@
 import axios from "axios";
-import { showError } from "../storeSlice";
+import { toast } from "react-toastify";
 
 export const getBlog = async (id) => {
     try {
@@ -11,6 +11,6 @@ export const getBlog = async (id) => {
         return response.data.blog;
     } catch (error) {
         console.log(error.response.data);
-        showError(error);
+        toast(error.response.data.message)
     }
 }
