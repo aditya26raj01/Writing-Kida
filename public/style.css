@@ -54,6 +54,13 @@ body {
     display: none;
     margin: auto;
 }
+.white-space{
+    white-space:pre-wrap !important;
+}
+
+.word-wrap{
+    word-break: break-all !important;
+}
 
 @media(max-width:900px) {
     .mobile {

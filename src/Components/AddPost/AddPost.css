@@ -1,7 +1,9 @@
 .switch-wrapper{
     display: flex;
     align-items: center;
-    gap: 40px;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    row-gap: 10px;
 }
 .upload-status{
     display: inline;
@@ -33,4 +35,9 @@
 }
 .no-bold{
     font-weight: normal !important;
+}
+@media(max-width:760px){
+    .switch-wrapper{
+        /* flex-direction: column; */
+    }
 }

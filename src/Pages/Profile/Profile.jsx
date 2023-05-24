@@ -23,10 +23,10 @@ const Profile = () => {
                     <tr>
                         <td>{user ? user.firstName : ""}</td>
                         <td>{user ? user.lastName : ""}</td>
-                        <td><strong>{user ? user.userName : ""}</strong></td>
-                        <td>{user ? user.email : ""}</td>
+                        <td className="white-space word-wrap"><strong>{user ? user.userName : ""}</strong></td>
+                        <td className="white-space word-wrap">{user ? user.email : ""}</td>
                         <td>+91 {user ? user.phone : ""}</td>
-                        <td>{user ? user.location : ""}</td>
+                        <td className="white-space word-wrap">{user ? user.location : ""}</td>
                         <td>{user ? user.roles[1] ? user.roles[1]:user.roles[0]:user.roles[0]}</td>
                     </tr>
                 </tbody>
@@ -43,11 +43,11 @@ const Profile = () => {
                     </tr>
                     <tr>
                         <th>User Name</th>
-                        <td><strong>{user ? user.userName : ""}</strong></td>
+                        <td className="word-wrap"><strong>{user ? user.userName : ""}</strong></td>
                     </tr>
                     <tr>
                         <th>Email</th>
-                        <td>{user ? user.email : ""}</td>
+                        <td className="word-wrap">{user ? user.email : ""}</td>
                     </tr>
                     <tr>
                         <th>Phone</th>
@@ -55,7 +55,7 @@ const Profile = () => {
                     </tr>
                     <tr>
                         <th>Location</th>
-                        <td>{user ? user.location : ""}</td>
+                        <td className="word-wrap">{user ? user.location : ""}</td>
                     </tr>
                     <tr>
                         <th>Role</th>

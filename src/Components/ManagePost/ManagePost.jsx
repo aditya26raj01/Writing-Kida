@@ -29,7 +29,7 @@ const ManagePost = () => {
 						{userBlogs.map((blog, index) => {
 							return <tr key={index}>
 								<td className="b">{index + 1}</td>
-								<td>{blog.title}</td>
+								<td className="white-space">{blog.title}</td>
 								<td>{blog.tag}</td>
 								<td className="b">{moment(blog.postedAt).format("ll")}</td>
 								<td className="a"><Button variant="contained" color="error" onClick={() => handleDelete(blog._id)} >Delete</Button></td>
