@@ -6,14 +6,14 @@ const Blogs = () => {
   const {blogs} = useOutletContext();
   return (
     <div className="blogs">
-        <form className="search-box">
+        {/* <form className="search-box">
             <div>
                 <i className="uil uil-search"></i>
                 <input type="text" placeholder="Search Blogs Here"/>
             </div>
             <button type="submit">Search</button>
-        </form>
-        {blogs && <Posts blogs={blogs}/>}
+        </form> */}
+        {blogs && <Posts allBlogs={true} blogs={blogs}/>}
     </div>
   )
 }

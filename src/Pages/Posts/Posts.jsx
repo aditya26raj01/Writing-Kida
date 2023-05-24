@@ -7,11 +7,19 @@ const Posts = (props) => {
 		<>
 			{blogs && blogs.length !== 0 ? <div className="posts">
 				{blogs.map((blog, index) => {
-					if (!blog.featured && !blog.deleted) return <Post blog={blog} key={index} />
+					if(props.stocks && blog.deleted){
+						return <Post blog={blog} key={index} />
+					}if(props.allBlogs && !blog.deleted){
+						return <Post blog={blog} key={index} />
+					}if(props.top10 && !blog.deleted){
+						return <Post blog={blog} key={index} />
+					}if (!blog.featured && !blog.deleted) {
+						return <Post blog={blog} key={index} />
+					}
 					else return null
 				})}
 			</div> :
-				<div className="nothing">No Blogs to Show<br />Try Adding One</div>}
+				<div className="nothing">No Blogs to Show</div>}
 		</>
 	)
 }

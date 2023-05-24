@@ -1,13 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const postBlog = createAsyncThunk(
-    "store/postBlog",
-    async (query, thunkAPI) => {
+export const getTop10 = createAsyncThunk(
+    "store/getTop10",
+    async (thunkAPI) => {
         try {
-            const response = await axios.post(
-                process.env.REACT_APP_API_URL + "/user/post-blog",
-                query,
+            const response = await axios.get(
+                process.env.REACT_APP_API_URL + "/user/get-top-10-blogs",
                 { headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` } }
             );
             console.log(response.data);
@@ -16,4 +15,5 @@ export const postBlog = createAsyncThunk(
             console.log(error.response.data);
             return thunkAPI.rejectWithValue(error.response.data);
         }
-    })
+    }
+);

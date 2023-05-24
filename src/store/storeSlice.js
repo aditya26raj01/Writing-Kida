@@ -1,17 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { toast } from 'react-toastify';
 import { login } from './services/login';
 import { getBlogs } from './services/getBlogs';
 import { getCategories } from './services/getCategories';
 import { getUserBlogs } from './services/getUserBlogs';
 import { refresh } from './services/refresh';
 import { toast } from 'react-toastify';
+import { getTop10 } from './services/getTop10';
+import { postBlog } from './services/postBlog';
+import { deleteBlog } from './services/deleteBlog';
+import { getStockUpdates } from './services/stockUpdates';
 
 const initialState = {
     user: null,
     blogs: null,
     categories: null,
     userBlogs: null,
+    top10Blogs: null,
+    stockUpdates: null,
 }
 
 export const showError = (error) => {
@@ -23,7 +28,11 @@ export const showError = (error) => {
         toast.error(error.payload.message)
     }
 }
-
+const addToUserBlogs = (arr, blog) => {
+    arr.push(blog);
+    arr.reverse();
+    return arr;
+}
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
@@ -69,6 +78,34 @@ export const counterSlice = createSlice({
     },
     [getUserBlogs.rejected]: (state, error) => {
         state.userBlogs = null;
+        showError(error);
+    },
+    [getTop10.fulfilled]: (state, action) => {
+        state.top10Blogs = action.payload.blogs;
+    },
+    [getTop10.rejected]: (state, error) => {
+        state.top10Blogs = null;
+        showError(error);
+    },
+    [getStockUpdates.fulfilled]: (state, action) => {
+        state.stockUpdates = action.payload.blogs;
+    },
+    [getStockUpdates.rejected]: (state, error) => {
+        state.stockUpdates = null;
+        showError(error);
+    },
+    [postBlog.fulfilled]: (state, action) => {
+        state.userBlogs = addToUserBlogs(state.userBlogs, action.payload.blog);
+        toast.success(action.payload.message);
+    },
+    [postBlog.rejected]: (state, error) => {
+        showError(error);
+    },
+    [deleteBlog.fulfilled]: (state, action) => {
+        state.userBlogs = action.payload.blogs;
+        toast.success(action.payload.message);
+    },
+    [deleteBlog.rejected]: (state, error) => {
         showError(error);
     },
   }

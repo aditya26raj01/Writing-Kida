@@ -1,66 +1,30 @@
-.dashboard{
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: 14rem auto;
-    background: var(--color-gray-900);
-    min-height: 50vh;
-    gap: 2rem;
+.dashboard-tabs{
+    background-image: linear-gradient(to bottom, #353580, #1e1e66) !important;
+    width: fit-content;
+    box-sizing: content-box;
+    height: fit-content;
+    padding: 7px 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
-.dashboard .navigation{
-    display: flex;
-    flex-direction: column;
-    background-color: var(--color-primary);
+.dashboard-tabs a{
+    background-color: #353580;
+    padding: 10px 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
 }
-.dashboard .navigation a{
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--color-gray-900);
+.aa{
+    border-bottom-right-radius: 10px;
 }
-.dashboard .navigation a:hover{
-    background-color: var(--color-gray-900);
+.bb{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
-.dashboard .navigation a i{
-    margin-right: 10px;
+.aa-active{
+    background-color: var(--color-gray-900) !important;
 }
-.active{
-    background-color: var(--color-gray-900);
-}
-.das-ham{
-    position: fixed;
-    right: 0;
-    top: 200px;
-    font-size: larger;
-    width: 30px;
-    height: 30px;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    background-color: var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    display: none;
-}
-.drawer{
-    width: 100%;
-    height: 100%;
-    margin-top: 80px;
-    background-color: var(--color-primary);
-    display: flex;
-    flex-direction: column;
-}
-.drawer a{
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--color-gray-900);
-}
-@media screen and (max-width:760px) {
-    .dashboard{
-        grid-template-columns: repeat(1, 1fr);
-        padding: 1rem;
-    }
-    .dashboard .navigation{
-        display: none;
-    }
-    .das-ham{
-        display: flex;
-    }
+.bb-active{
+    background-color: var(--color-gray-900) !important;
 }

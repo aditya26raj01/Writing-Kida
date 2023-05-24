@@ -10,11 +10,13 @@ import { Slide, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Signup from "./Pages/Signup/Signup";
 import DashBoard from "./Pages/DashBoard/DashBoard";
-import ManageUser from "./Components/ManageUser/ManageUser";
 import AddPost from "./Components/AddPost/AddPost";
 import ManagePost from "./Components/ManagePost/ManagePost";
 import { useSelector } from "react-redux";
 import Blog from "./Pages/Blog/Blog";
+import Protected from "./Protected";
+import Profile from "./Pages/Profile/Profile";
+import StockUpdates from "./Pages/StockUpdates/StockUpdates";
 
 const App = () => {
   const { user } = useSelector((state) => state.store);
@@ -25,14 +27,19 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/news" element={<News />} />
+          <Route path="/stock-updates" element={<StockUpdates />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/about" element={<About />} />
-          <Route path="/blog/:id" element={user?<Blog/>:<Navigate to="/login" replace={true} />} />
-          <Route element={user?<DashBoard />:<Navigate to="/login" replace={true} />}>
-            <Route path="/dashboard/manage-user" element={<ManageUser/>}/>
-            <Route path="/dashboard/add-post" element={<AddPost/>}/>
-            <Route path="/dashboard/manage-post" element={<ManagePost/>}/>
+
+          <Route element={<Protected/>}>
+            <Route path="/blog/:id" element={<Blog/>}/>
+            <Route path="/profile" element={<Profile/>}/>
+            <Route element={<DashBoard/>}>
+              <Route path="/dashboard/manage-post" element={<ManagePost />} />
+              <Route path="/dashboard/add-post" element={<AddPost />} />
+            </Route>
           </Route>
+          
         </Route>
         {!user && <Route path="/login" element={<Login />} />}
         {!user && <Route path="/signup" element={<Signup />} />}

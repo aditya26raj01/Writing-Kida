@@ -30,7 +30,7 @@ const Navbar = (props) => {
           think & ink</a>
         <div className="navigation-wrapper">
           <div className="navigation">
-            <Link to="/blogs">BLOG</Link>
+            <Link to="/blogs">BLOGS</Link>
             <Link to="/news">NEWS</Link>
             <Link to="/contact">CONTACT</Link>
             {!user && <Link to="/login">SIGNIN</Link>}
@@ -50,15 +50,16 @@ const Navbar = (props) => {
           horizontal: 'left',
         }}
       >
-        <div className="popover">
-          <div className="desktop">
-            <Link to="/blogs" onClick={handleClose}>BLOG</Link>
+        <div className="popover-mine">
+          <div className="desktop-popover">
+            <Link to="/blogs" onClick={handleClose}>BLOGS</Link>
             <Link to="/news" onClick={handleClose}>NEWS</Link>
             <Link to="/contact" onClick={handleClose}>CONTACT</Link>
             {!user && <Link to="/login" onClick={handleClose}>SIGNIN</Link>}
             <Link to="/about" onClick={handleClose}>ABOUT</Link>
           </div>
-          {user && <Link to="/dashboard/manage-post" onClick={handleClose}>DASHBOARD</Link>}
+          {user && user.roles.includes("BLOGGER") && <Link to="/dashboard/manage-post" onClick={handleClose}>DASHBOARD</Link>}
+          {user && <Link to="/profile" onClick={handleClose}>PROFILE</Link>}
           {user && <Link to="/" onClick={handleLogout}>LOGOUT</Link>}
         </div>
       </Popover>

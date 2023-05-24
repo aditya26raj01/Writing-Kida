@@ -5,7 +5,7 @@ import moment from "moment";
 const Headline = (props) => {
   const { blog } = props;
   return (
-    <div className="headline">
+    <div className="headline carousel-item">
         <img src={blog.coverImage} alt="" className="thumbnail" />
         <div className="content-wrapper">
             <Link to="/" className="tag">{blog.tag}</Link>

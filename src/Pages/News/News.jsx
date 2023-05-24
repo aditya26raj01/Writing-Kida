@@ -3,11 +3,11 @@ import Posts from "../Posts/Posts";
 import "./News.css";
 
 const News = () => {
-  const {blogs} = useOutletContext();
+  const {top10Blogs} = useOutletContext();
   return (
     <div className="news">
         <h1>Top 10 Of Today</h1>
-        {blogs && <Posts blogs={blogs}/>}
+        {top10Blogs && <Posts top10={true} blogs={top10Blogs}/>}
     </div>
   )
 }

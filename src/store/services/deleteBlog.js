@@ -1,13 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from "axios"
 
-export const postBlog = createAsyncThunk(
-    "store/postBlog",
-    async (query, thunkAPI) => {
+export const deleteBlog = createAsyncThunk(
+    "store/deletBlog",
+    async (id, thunkAPI) => {
         try {
-            const response = await axios.post(
-                process.env.REACT_APP_API_URL + "/user/post-blog",
-                query,
+            const response = await axios.get(
+                process.env.REACT_APP_API_URL + "/user/delete-blog/" + id,
                 { headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` } }
             );
             console.log(response.data);

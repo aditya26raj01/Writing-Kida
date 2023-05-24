@@ -12,7 +12,7 @@ const Footer = () => {
         <Link to="https://twitter.com"><i className="uil uil-twitter"></i></Link>
       </div>
       <div className="links">
-        <div className="row">
+        <div className="footer-row">
           <h4>Cateogries</h4>
           <Link to="/">Politics</Link>
           <Link to="/">Stock Market</Link>
@@ -21,7 +21,7 @@ const Footer = () => {
           <Link to="/">Entertainment</Link>
           <Link to="/">Nature</Link>
         </div>
-        <div className="row">
+        <div className="footer-row">
           <h4>Support</h4>
           <Link to="/contact">Online Support</Link>
           <Link to="/contact">Phn Numbers</Link>
@@ -29,7 +29,7 @@ const Footer = () => {
           <Link to="/contact">Sports</Link>
           <Link to="/about">About</Link>
         </div>
-        <div className="row">
+        <div className="footer-row">
           <h4>Permalinks</h4>
           <Link to="/">Home</Link>
           <Link to="/blogs">Blogs</Link>

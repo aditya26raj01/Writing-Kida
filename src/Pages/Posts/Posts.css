@@ -4,10 +4,8 @@
     gap: 50px;
 }
 .nothing{
-    font-weight: bold;
     text-align: center;
-    width: 100%;
-    
+    font-weight: bold;
 }
 @media screen and (max-width:800px) {
     .posts{

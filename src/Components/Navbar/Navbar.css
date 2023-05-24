@@ -3,6 +3,7 @@
     top: 0;
     width: 100%;
     background-color: var(--color-primary);
+    z-index: 20;
 }
 .navbar{
     display: flex;
@@ -17,7 +18,7 @@
     font-size: 1.2rem;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: .7rem;
 }
 .navbar .avatar{
     width: 50px;
@@ -38,17 +39,17 @@
     align-items: center;
     gap: 40px;
 }
-.popover {
+.popover-mine {
     background-color: #1E1E66;
     color: white;
 }
 
-.popover a {
+.popover-mine a {
     padding: 10px;
     display: block;
 }
 
-.popover a:hover {
+.popover-mine a:hover {
     background-color: #2e2e6a;
 }
 .ham{
@@ -56,7 +57,7 @@
     transform: scale(2.5);
     cursor: pointer;
 }
-.desktop {
+.desktop-popover {
     display: none;
 }
 @media screen and (max-width:950px) {
@@ -74,7 +75,7 @@
     .ham{
         display: block;
     }
-    .desktop{
+    .desktop-popover{
         display: block;
     }
 }

@@ -9,9 +9,9 @@ const Post = (props) => {
       <img src={blog.coverImage} alt="" className="thumbnail" />
       <Link to="/" className="tag">{blog.tag}</Link>
       <Link to={`/blog/${blog._id}`} className="title">{blog.title}</Link>
-      <p className="description">
+      <div className="description">
         {blog.description}
-      </p>
+      </div>
       <div className="author">
         <img src={blog.author.profileImage} alt="" className="avatar" />
         <div className="name-wrapper">

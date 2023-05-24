@@ -1,45 +1,63 @@
-.manage-post{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-.manage-post table{
+.manage-post-table{
     width: 100%;
-    font-size: 0.9rem;
+    border-collapse: collapse;
 }
-.manage-post th{
-    padding: 0.8rem;
-    background: var(--color-gray-700);
-    color: var(--color-white);
-    text-align: left;
-}
-.manage-post td{
-    padding: 0.8rem;
-    border-bottom: 1px solid var(--color-gray-200);
-}
-.manage-post .delete{
-    background-color: var(--color-red);
-    padding: 0.5rem 0.8rem;
-    outline: 0;
-    border: 0;
-    border-radius: var(--card-border-radius-2);
-    cursor: pointer;
-    transition: var(--transition);
+.manage-post-table th{
+    padding: 10px 20px;
+    border: 1px solid var(--color-gray-300);
     color: var(--color-white);
 }
-.manage-post .delete:hover{
-    color: black;
-}
-.manage-post .edit{
-    background-color: var(--color-primary);
-    padding: 0.5rem 0.8rem;
-    outline: 0;
-    border: 0;
-    border-radius: var(--card-border-radius-2);
-    cursor: pointer;
-    transition: var(--transition);
+.manage-post-table td{
     color: var(--color-white);
+    padding: 10px 20px;
+    border: 1px solid var(--color-gray-300);
+    white-space: nowrap;
 }
-.manage-post .edit:hover{
-    color: black;
+.manage-post-table .a{
+    width: 100px;
+    text-align: center;
+}
+.manage-post-table .b{
+    width: 100px;
+    text-align: center;
+}
+.manage-post-mobile{
+    display: none;
+    border-collapse: collapse;
+}
+.manage-post-mobile th{
+    border: 1px solid var(--color-gray-300);
+    color: var(--color-white);
+    width: 100px;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+.manage-post-mobile td{
+    border: 1px solid var(--color-gray-300);
+    color: var(--color-white);
+    padding: 5px 10px;
+}
+.nothing-mob{
+    display: none;
+}
+.manage-post-mobile .btn{
+    width: 50% !important;
+    margin: auto;
+    font-size: small !important;
+    border-radius: 50px !important;
+    float: right;
+}
+@media(max-width:780px){
+    .nothing{
+        display: none;
+    }
+    .manage-post-table{
+        display: none;
+    }
+    .manage-post-mobile{
+        display: table;
+    }
+    .nothing-mob{
+        display: block;
+    }
 }

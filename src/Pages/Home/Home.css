@@ -3,3 +3,47 @@
     flex-direction: column;
     gap: 50px;
 }
+.top{
+    background: var(--color-gray-900);
+    padding: 10px 0px;
+}
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.col-2{
+    flex-basis: 80%;
+    padding: 1px;
+}
+.small-container{
+    max-width: 1080px;
+    margin: auto;
+}
+.small-container .btn{
+    display: inline-block;
+    width: fit-content;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--color-primary);
+    border-radius: var(--card-border-radius-2);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-white);
+}
+.carousel-control-next-icon{
+    position: relative;
+    right: -120px;
+}
+
+.carousel-control-prev-icon{
+    position: relative;
+    left: -120px;
+}
+@media(max-width:950px) {
+    .carousel-control-next-icon{
+        display: none;
+    }.carousel-control-prev-icon{
+        display: none;
+    }
+}

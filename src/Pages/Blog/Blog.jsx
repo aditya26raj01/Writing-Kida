@@ -28,8 +28,7 @@ const Blog = () => {
                     </div>
                 </div>
                 <img src={blog.coverImage} alt="" className="thumbnail" />
-                <div className="content">
-                    {blog.content}
+                <div className="content" dangerouslySetInnerHTML={{__html: blog.content}} >
                 </div>
             </>}
         </div>
