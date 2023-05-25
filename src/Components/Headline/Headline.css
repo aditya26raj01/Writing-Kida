@@ -75,13 +75,19 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
 }
-
+.headline .like-wrapper{
+    justify-content: unset;
+    gap: 40px;
+}
 @media screen and (max-width:760px) {
     .headline {
         grid-template-columns: repeat(1, 1fr);
         gap: 20px;
     }
-
+    .headline .like-wrapper{
+        gap: unset;
+        justify-content: space-between;
+    }
     .headline .thumbnail {
         width: 100%;
     }
