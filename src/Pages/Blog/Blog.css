@@ -18,6 +18,9 @@
     font-weight: bold;
     color: var(--color-white);
 }
+.blog .content{
+    word-wrap: break-word;
+}
 @media screen and (max-width:1030px) {
     .blog{
         width: 100%;

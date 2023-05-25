@@ -1,7 +1,7 @@
 import "./ManagePost.css";
 import moment from "moment";
 import { Button } from "@mui/material";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteBlog } from "../../store/services/deleteBlog";
 
@@ -12,7 +12,7 @@ const ManagePost = () => {
 		dispatch(deleteBlog(id));
 	}
 	return (
-		<div className="container">
+		<div className="container manage-post">
 			<h2>Manage Post</h2>
 			{userBlogs && userBlogs.length > 0 ?
 				<table className="manage-post-table">
@@ -29,7 +29,7 @@ const ManagePost = () => {
 						{userBlogs.map((blog, index) => {
 							return <tr key={index}>
 								<td className="b">{index + 1}</td>
-								<td className="white-space">{blog.title}</td>
+								<td className="white-space"><Link to={`/blog/${blog._id}`}>{blog.title}</Link></td>
 								<td>{blog.tag}</td>
 								<td className="b">{moment(blog.postedAt).format("ll")}</td>
 								<td className="a"><Button variant="contained" color="error" onClick={() => handleDelete(blog._id)} >Delete</Button></td>
@@ -49,7 +49,7 @@ const ManagePost = () => {
 							</tr>
 							<tr>
 								<th>Title</th>
-								<td>{blog.title}</td>
+								<td><Link to={`/blog/${blog._id}`}>{blog.title}</Link></td>
 							</tr>
 							<tr>
 								<th>Category</th>
