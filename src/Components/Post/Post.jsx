@@ -12,14 +12,16 @@ const Post = (props) => {
   const [likes, setLikes] = useState(blog.likes || 0);
   const [liked, setLiked] = useState("");
   const handleLike = () => {
+    if(liked === "liked"){
+      setLikes(likes-1);
+      setLiked("");
+    }else{
+      setLiked("liked");
+      setLikes(likes+1);
+    }
     dispatch(likeBlog(blog._id)).unwrap()
     .then((b) => {
       setLikes(b.likes);
-      if(liked === "liked"){
-        setLiked("");
-      }else{
-        setLiked("liked");
-      }
     })
     .catch(()=>{})
   }
