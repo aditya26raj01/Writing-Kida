@@ -4,6 +4,7 @@ import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { likeBlog } from "../../store/services/likelog";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const Post = (props) => {
   const dispatch = useDispatch();
@@ -12,6 +13,10 @@ const Post = (props) => {
   const [likes, setLikes] = useState(blog.likes || 0);
   const [liked, setLiked] = useState("");
   const handleLike = () => {
+    if(!user){
+      toast.error("Login to Continue"); 
+      return;
+    }
     if(liked === "liked"){
       setLikes(likes-1);
       setLiked("");
