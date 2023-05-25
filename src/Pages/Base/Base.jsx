@@ -28,7 +28,7 @@ const Base = () => {
 		<>
 			<Navbar user={user} />
 			<div className="base">
-				<Outlet context={{ blogs, categories, top10Blogs, stockUpdates }} />
+				<Outlet context={{ blogs, categories, top10Blogs, stockUpdates, user }} />
 			</div>
 			{<Category categories={categories} />}
 			<Footer />

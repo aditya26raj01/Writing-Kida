@@ -12,14 +12,33 @@
     object-fit: cover;
     object-position: center;
 }
-
+.like-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.like-wrapper .like{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin-right: 30px;
+}
 .post .description {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
 }
-
+.like-count{
+    font-size: small;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.liked{
+    background-color: #fb3958;
+    color: white;
+}
 .post .tag {
     background-color: var(--color-primary-light);
     color: var(--color-primary);

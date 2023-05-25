@@ -9,6 +9,7 @@ import { getTop10 } from './services/getTop10';
 import { postBlog } from './services/postBlog';
 import { deleteBlog } from './services/deleteBlog';
 import { getStockUpdates } from './services/stockUpdates';
+import { likeBlog } from './services/likelog';
 
 const initialState = {
     user: null,
@@ -33,6 +34,7 @@ const addToUserBlogs = (arr, blog) => {
     arr.reverse();
     return arr;
 }
+
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
@@ -106,6 +108,12 @@ export const counterSlice = createSlice({
         toast.success(action.payload.message);
     },
     [deleteBlog.rejected]: (state, error) => {
+        showError(error);
+    },
+    [likeBlog.fulfilled]: (state, action) => {
+        toast.success(action.payload.message);
+    },
+    [likeBlog.rejected]: (state, error) => {
         showError(error);
     },
   }

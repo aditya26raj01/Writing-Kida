@@ -8,26 +8,26 @@ const Home = (props) => {
   return (
     <div className="home">
       <Carousel blogs={blogs} />
-      <section class="top">
-        <div class="top">
-          <div class="small-container">
-            <div class="row">
-              <div class="col-2">
+      <section className="top">
+        <div className="top">
+          <div className="small-container">
+            <div className="row">
+              <div className="col-2">
                 <h2>Top 10 News Of Day</h2>
-                <Link to="/news" class="btn">Read Now &#8594;</Link>
+                <Link to="/news" className="btn">Read Now &#8594;</Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="top">
-        <div class="top">
-          <div class="small-container">
-            <div class="row">
-              <div class="col-2">
+      <section className="top">
+        <div className="top">
+          <div className="small-container">
+            <div className="row">
+              <div className="col-2">
                 <h2>Daily Stock Market Updates</h2>
-                <Link to="/stock-updates" class="btn">Read Now &#8594;</Link>
+                <Link to="/stock-updates" className="btn">Read Now &#8594;</Link>
               </div>
             </div>
           </div>
